@@ -31,6 +31,54 @@ using Labkit, a plugin available in Fiji.
 
 ## Usage
 
+The pipeline consists of [Fiji](https://fiji.sc/) scripts, a Fiji plugin and an 
+optional [napari](https://napari.org/stable/) plugin. It includes the following steps:
+
+1. [Data normalization](#1---data-normalization): normalize data to allow better 
+  classification using a single Labkit trained classifier.
+2. [Mask creation](#2a---mask-creation): create masks in order to exclude regions from
+  the analysis.
+3. [Training a pixel classifier](#3---training-a-pixel-classifier): training a Labkit
+  classifier to segment the images into different classes.
+4. [Process images and quantification](#4---process-images-and-quantification): process
+  the images using the trained classifier and compute the percentage of collagen versus
+  tissue+collagen.
+
+The set of scripts expect normalized files and masks to have the same name. The structure
+of the folder resulting from the analysis is as follows, but only the separation in 
+folders and file naming are essential for the analysis to run:
+
+```
+├── trained_classifier.classifier
+├── raw
+│   ├── image1.tiff
+│   ├── ...
+│   └── imageN.tiff
+├── raw-normalized
+│   ├── image1-normalised.tiff
+│   ├── ...
+│   └── imageN-normalised.tiff
+├── masks
+│   ├── image1-normalised.tiff
+│   ├── ...
+│   └── imageN-normalised.tiff
+└── result_analysis
+    ├── image1-normalised_segmentation_bg.tiff
+    ├── image1-normalised_segmentation_collagen_masked.tiff
+    ├── image1-normalised_segmentation_collagen.tiff
+    ├── image1-normalised_segmentation_sum_tissue_collagen_masked.tiff
+    ├── image1-normalised_segmentation_sum_tissue_collagen.tiff
+    ├── image1-normalised_segmentation_tissue.tiff
+    ├── image1-normalised_segmentation.tiff
+    ├── ...
+    ├── result_summary_masked.tiff
+    └── result_summary.tiff
+```
+
+`raw-normalized` is created in section 1, `masks` in section 2, the classifier in 
+section 3 and finally, `result_analysis` in section 4.
+
+
 ### 1 - Data normalization
 
 1. Place all data into a single folder, as tiff images.
@@ -107,10 +155,16 @@ as a sequence as well.
 5. (soon)
 
 
-###
+### 4 - Process images and quantification
+
+1. Open and run `scripts/4_process_folder_with_classifier.ijm`.
+2. If you want to exclude masks from the analysis, check `Exclude masks` and choose
+   the folder containing the masks.
 
 
 
-
-
-AI4Life has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement number 101057970. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.
+AI4Life has received funding from the European Union’s Horizon Europe research and 
+innovation programme under grant agreement number 101057970. Views and opinions 
+expressed are however those of the author(s) only and do not necessarily reflect those 
+of the European Union or the European Research Council Executive Agency. Neither the 
+European Union nor the granting authority can be held responsible for them.
