@@ -6,7 +6,7 @@
 
 # Treat CKD
 
-
+The aim of the project is to segment multiple classes 
 
 
 
