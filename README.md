@@ -43,6 +43,7 @@ optional [napari](https://napari.org/stable/) plugin. It includes the following 
 4. [Process images and quantification](#4---process-images-and-quantification): process
   the images using the trained classifier and compute the percentage of collagen versus
   tissue+collagen.
+5. [Results](#5---results): explore the results.
 
 The set of scripts expect normalized files and masks to have the same name. The structure
 of the folder resulting from the analysis is as follows, but only the separation in 
@@ -89,7 +90,10 @@ section 3 and finally, `result_analysis` in section 4.
 white patch (background). After drawing a rectangle, click on `OK` to move to the next
 image.
 
-All resulting images are saved into a new folder (`*-normalized`).
+All resulting images are saved into a new folder (`*-normalized`). We recommend to
+perform a quality control to check whether the normalization was succesful. For this,
+you can either open all images in Fiji and compare them, or used the 
+`quality_control/1_explore_normalization.ipynb` notebook. 
 
 
 ### 2a - Mask creation
@@ -105,7 +109,10 @@ to exclude from the analysis. Each time you draw a ROI, press `t` to add it to t
 manager.
 3. Once you are done, press `OK` to move to the next image.
 
-All resulting images are saved into the mask folder.
+All resulting images are saved into the mask folder. We recommend to
+perform a quality control to check whether the masks are correct. For this,
+you can either open all images in Fiji and compare them, or used the 
+`quality_control/2_explore_masks.ipynb` notebook. 
 
 
 ### 2b - Using SAM in napari
@@ -121,6 +128,11 @@ in two different ways:
   need to be labeled with small scribbles.
 
 (soon)
+
+ We recommend to
+perform a quality control to check whether the masks are correct. For this,
+you can either open all images in Fiji and compare them, or used the 
+`quality_control/2_explore_masks.ipynb` notebook. 
 
 ### 2c - Painting with Labkit
 
@@ -143,6 +155,10 @@ must have the same name, e.g. `raw-normalised/image1.tiff` and `masks/image1.tif
 Therefore, you might have to rename the images, for instance by exporting the stack
 as a sequence as well.
 
+We recommend to perform a quality control to check whether the masks are correct. For this,
+you can either open all images in Fiji and compare them, or used the 
+`quality_control/2_explore_masks.ipynb` notebook. 
+
 
 ### 3 - Training a pixel classifier
 
@@ -152,7 +168,17 @@ as a sequence as well.
    of images. Click `OK` and save the stack as a tiff image.
 3. Load the stack again in Fiji.
 4. In the search bar of Fiji, type `Labkit` and click on `Open current image with Labkit`.
-5. (soon)
+5. Create the different labels corresponding to the classes you need (e.g. background,
+   tissue, collagen, cells).
+6. For each label, select the brush (brush size 1) and draw small scribbles in the most
+   representative pixels and borders of the class. Do not label too much at the beginning.
+7. Add a Labkit classifier and train it.
+8. Observe the results and correct by adding a few labels to the area where the classifier 
+    is not performing well.
+9. Move to another slice of the stack often, in order to create a classifier that 
+    generalizes well.
+10. Once you are happy with the results, save the classifier and write down the order
+    of the classes..
 
 
 ### 4 - Process images and quantification
@@ -161,7 +187,19 @@ as a sequence as well.
 2. If you want to exclude masks from the analysis, check `Exclude masks` and choose
    the folder containing the masks.
 
+We recommend to perform a quality control to check whether the masks are correct. For 
+this, you can either open all images in Fiji and compare them, or used the 
+`quality_control/4a_explore_segmentation_classes.ipynb` and 
+`quality_control/4b_explore_tissue_collagen.ipynb` notebooks. 
 
+
+### 5 - Results
+
+You can use the software of your choice to plot the results (e.g. excel). In the 
+`quality_control` folder, we provide a notebook to explore the results (`5_plot_results.ipynb`).
+
+
+## Acknowledgements
 
 AI4Life has received funding from the European Union’s Horizon Europe research and 
 innovation programme under grant agreement number 101057970. Views and opinions 

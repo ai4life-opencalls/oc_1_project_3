@@ -1,0 +1,12 @@
+name: ckd
+
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - numpy
+      - matplotlib
+      - tifffile
+      - jupyter
+      - pandas
+      - seaborn

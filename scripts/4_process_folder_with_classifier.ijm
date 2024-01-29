@@ -166,7 +166,7 @@ resultAreaTissue_excl = newArray(0);
 resultAreaFiber_excl = newArray(0);
 resultAreaPercentage_excl = newArray(0);
 
-for (i = 0; i < 1; i++) {
+for (i = 0; i < files.length; i++) {
 		
 	///////////////////////////////////
 	////////// Segment image //////////
@@ -230,8 +230,7 @@ for (i = 0; i < 1; i++) {
 	imageCalculator("OR create", TISSUE, FIBER);
 	
 	// Close original tissue
-	selectImage(TISSUE);
-	close();
+	close(TISSUE);
 	
 	// Compute areas in pixels using the histogram
 	selectImage("Result of " + TISSUE);
@@ -269,13 +268,13 @@ for (i = 0; i < 1; i++) {
 
 			// Multiply tissue by the mask 
 			imageCalculator("AND create", SUM, MASK);
-			rename(SUM_MASKED);
+			rename(SUM_MASKED);			
 			
 			getStatistics(area, mean, min, max, std, histogram);
 			areaTissueMasked = histogram[255];
 	
 			saveAs("Tiff", outputDirectory + File.separator + resultFile[i] + "_segmentation_sum_" + SUM_MASKED + ".tif");
-			close();
+			close(SUM_MASKED);
 						
 			// Multiply collagen by the mask
 			imageCalculator("AND create", FIBER, MASK);
@@ -285,7 +284,8 @@ for (i = 0; i < 1; i++) {
 			areaFiberMasked = histogram[255];
 	
 			saveAs("Tiff", outputDirectory + File.separator + resultFile[i] + "_segmentation_" + FIBER_MASKED + ".tif");
-			close();
+			close(FIBER_MASKED);
+			close(MASK);
 			
 			// quantification
 			percFiberMasked = 100*(areaFiberMasked / areaTissueMasked);
@@ -302,10 +302,10 @@ for (i = 0; i < 1; i++) {
 	// Save and close images
 	selectImage(SUM);	
 	saveAs("Tiff", outputDirectory + File.separator + resultFile[i] + "_segmentation_sum_" + SUM + ".tif");
-	close();
+	close(SUM);
 	
 	selectImage(FIBER);	
-	close();
+	close(FIBER);
 	
 	// Update user
 	print("Processed " + files[i]);
