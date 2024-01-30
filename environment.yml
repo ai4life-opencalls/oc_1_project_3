@@ -1,12 +1,37 @@
 name: ckd
 
+channels:
+  - pytorch
+  - anaconda
+  - conda-forge
+  - defaults
+
 dependencies:
-  - python=3.10
+  - python=3.9
+  - pyqt=5.15.10
+  - qtpy
+  - magicgui
+  - scikit-learn
+  - scikit-image
+  - scipy
+  - napari
+  - napari-console
+  - napari-plugin-engine
+  - napari-svg
+  - h5py
+  - pytorch=2.1.2
+  - torchvision
   - pip
   - pip:
+      - numpy
+      - matplotlib
+      - opencv-python==4.8.0.74
+      - timm
+      - pynrrd
       - numpy
       - matplotlib
       - tifffile
       - jupyter
       - pandas
       - seaborn
+      - git+https://github.com/juglab/napari-sam-labeling-tools.git

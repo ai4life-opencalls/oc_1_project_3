@@ -18,15 +18,41 @@ using Labkit, a plugin available in Fiji.
 
 ### Installing Fiji
 
-(soon)
+You can download Fiji from [here](https://imagej.net/software/fiji/downloads).
 
-### Installing Labkit
 
-(soon)
+## (Optional) Installing Jupyter and napari
 
-## (Optional) Installing the napari plugin
+The Jupyter notebooks are used for quality control, while our napari plugins provide
+additional tools to create masks in order to exclude areas from the analysis.
 
-(soon)
+Both need to be installed using Python, and we recommend to use a virtual environment.
+To do that we will need a terminal (aka command prompt). While unix-based systems
+(MacOS, Linux) have a terminal by default, Windows users will need to install one to
+simplify the installation process. We recommend to use 
+[git bash](https://gitforwindows.org/).
+
+1. Open the terminal and check whether your have `conda` installed by typing `conda -V`.
+   If you get an error, you will need to install it. Otherwise, you can skip to step 3.
+2. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Restart 
+   your terminal and verify that now conda works.
+3. Let's download the repository. In the terminal, type the following lines:
+    ```bash
+    cd ~
+    mkdir git
+    cd git
+    git clone https://github.com/ai4life-opencalls/oc_1_project_3
+    cd oc_1_project_3
+    ```
+4. We then create a `conda` environment in which to install both Jupyter and napari.
+    ```bash
+    conda env create -y -f environment.yml
+    ```
+5. Now, and everytime you start your terminal, it is important to activate the 
+   environment. To do that, type `conda activate ckd`.
+6. You can start a Jupyter server by typing `jupyter`. Test that you can navigate and 
+   open the notebooks in the `quality_control` folder.
+7. You can start napari by typing `napari`.
 
 
 ## Usage
@@ -98,7 +124,7 @@ you can either open all images in Fiji and compare them, or used the
 
 ### 2a - Mask creation
 
-This one of the three methods we propose to create masks for exclusion of image regions
+This one of the four methods we propose to create masks for exclusion of image regions
 from the analysis. This method is more straightforward as it relies only on Fiji. It can
 be used to create rectangles - the simplest shape -, or more complex ROIs by drawing
 circles or even freehand shapes.
@@ -119,22 +145,50 @@ you can either open all images in Fiji and compare them, or used the
 
 This method is more complex but potentially more powerful, as it levereages Segment
 Anything Model (SAM), once of the most advanced AI model for segmentation. We use SAM 
-in two different ways:
+by providing prompts (positive and negative points, or rectangles) to the model. SAM 
+then output masks that can be saved for later use.
 
-- By adding positive and negative prompts (points) or drawing recangles around the 
-  regions we want to exclude from the analysis. This is the most straightforward way
-  to use SAM.
-- By using SAM together with Random Forests (similar to Labkit), where several classes
-  need to be labeled with small scribbles.
+1. In order to limit the number of clicking, we advise to create a stack in Fiji of all
+   your images (e.g. 20).
+2. The second thing is to scale down your images to save computation time and space. For 
+   instance, if your images are 3074x2048, you can scale them by a factor 0.125 (x8). In
+   Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
+3. Save as a tiff stack.
+4. Open napari by entering `napari` in a terminal.
+5. 
 
-(soon)
++ scale at the masks at the end 
 
- We recommend to
-perform a quality control to check whether the masks are correct. For this,
+(soon to be expanded)
+
+We recommend to perform a quality control to check whether the masks are correct. For this,
 you can either open all images in Fiji and compare them, or used the 
 `quality_control/2_explore_masks.ipynb` notebook. 
 
-### 2c - Painting with Labkit
+### 2c - Pairing SAM embeddings with Random Forest
+
+This method is more complex but can prove incredibly powerful in guiding SAM towards
+what we want to obtain. Since this is the main tool used in another project, we advise 
+you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52) for 
+how to proceed with this method.
+
+Note that in this case, the goal is still to create masks for the areas we want to 
+exclude!
+
+
+1. In order to limit the number of clicking, we advise to create a stack in Fiji of all
+   your images (e.g. 20).
+2. The second thing is to scale down your images to save computation time and space. For 
+   instance, if your images are 3074x2048, you can scale them by a factor 0.125 (x8). In
+   Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
+3. Save as a tiff stack.
+4. Open napari by entering `napari` in a terminal.
+5. 
+
++ scale at the masks at the end 
+
+
+### 2d - Painting with Labkit
 
 1. Load all normalized images into Fiji.
 2. By default, the image might be loaded as a z-stack. Click on `Image > Properties...`,
@@ -177,8 +231,8 @@ you can either open all images in Fiji and compare them, or used the
     is not performing well.
 9. Move to another slice of the stack often, in order to create a classifier that 
     generalizes well.
-10. Once you are happy with the results, save the classifier and write down the order
-    of the classes..
+10. Once you are happy with the results, save the classifier 
+    (`Segmentation > Save Classifier ...`) and write down the order of the classes.
 
 
 ### 4 - Process images and quantification
@@ -186,6 +240,8 @@ you can either open all images in Fiji and compare them, or used the
 1. Open and run `scripts/4_process_folder_with_classifier.ijm`.
 2. If you want to exclude masks from the analysis, check `Exclude masks` and choose
    the folder containing the masks.
+3. At the end of the computation, all results are saved in the result folder, 
+   including the summary table.
 
 We recommend to perform a quality control to check whether the masks are correct. For 
 this, you can either open all images in Fiji and compare them, or used the 
@@ -196,7 +252,8 @@ this, you can either open all images in Fiji and compare them, or used the
 ### 5 - Results
 
 You can use the software of your choice to plot the results (e.g. excel). In the 
-`quality_control` folder, we provide a notebook to explore the results (`5_plot_results.ipynb`).
+`quality_control` folder, we provide a notebook to explore the results 
+(`5_plot_results.ipynb`).
 
 
 ## Acknowledgements
