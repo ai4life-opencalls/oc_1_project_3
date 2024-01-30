@@ -140,6 +140,10 @@ to exclude from the analysis. Each time you draw a ROI, press `t` to add it to t
 manager.
 3. Once you are done, press `OK` to move to the next image.
 
+> **Note**: You can use any type of ROI selection, e.g. lasso or circle as well. It is 
+> just important to remember to add each new ROI to the ROI manager using the `t` shortcut.
+
+
 All resulting images are saved into the mask folder. We recommend to
 perform a quality control to check whether the masks are correct. For this,
 you can either open all images in Fiji and compare them, or used the 
@@ -223,20 +227,23 @@ you can either open all images in Fiji and compare them, or used the
 
 1. Load all normalized images into Fiji.
 2. By default, the image might be loaded as a z-stack. Click on `Image > Properties...`,
-   and set the number of slices to 1, and the number of frames point equal to the number
+   and set the number of slices to 1, and the number of frames equal to the number
    of images. Click `OK` and save the stack as a tiff image.
 3. Load the stack again in Fiji.
 4. In the search bar of Fiji, type `Labkit` and click on `Open current image with Labkit`.
 5. Create the different labels corresponding to the classes you need (e.g. background,
-   tissue, collagen, cells).
+   tissue, collagen, cells). It helps to make colors similar to the image, but also
+   visible enough when overlaid (this comes with experience with Labkit).
 6. For each label, select the brush (brush size 1) and draw small scribbles in the most
    representative pixels and borders of the class. Do not label too much at the beginning.
 7. Add a Labkit classifier and train it.
-8. Observe the results and correct by adding a few labels to the area where the classifier 
+8. Observe the results and correct them by adding a few labels to the area where the classifier 
     is not performing well.
 9. Move to another slice of the stack often, in order to create a classifier that 
     generalizes well.
-10. Once you are happy with the results, save the classifier 
+10. You can toggle the view between the classifier result and the original image using 
+    the little eye icons.
+11. Once you are happy with the results, save the classifier 
     (`Segmentation > Save Classifier ...`) and write down the order of the classes.
 
 
