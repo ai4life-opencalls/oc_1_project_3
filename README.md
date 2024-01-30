@@ -49,10 +49,12 @@ simplify the installation process. We recommend to use
     conda env create -y -f environment.yml
     ```
 5. Now, and everytime you start your terminal, it is important to activate the 
-   environment. To do that, type `conda activate ckd`.
-6. You can start a Jupyter server by typing `jupyter`. Test that you can navigate and 
-   open the notebooks in the `quality_control` folder.
-7. You can start napari by typing `napari`.
+   environment. To do that, type `conda activate ckd`. If this does not work, that means
+   that you probably need to do a `conda init bash` first and restart your terminal first.
+6. You can start a Jupyter server by typing `jupyter notebook`. It will open a new page
+   in your browser. There, navigate to the `quality_control` folder and open one of the
+   notebook.
+7. Open a new terminal, activate the environment and start napari by typing `napari`.
 
 
 ## Usage
