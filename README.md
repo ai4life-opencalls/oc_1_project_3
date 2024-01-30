@@ -116,7 +116,10 @@ section 3 and finally, `result_analysis` in section 4.
 4. Select the folder containing the images.
 5. For each image, the script will pause and ask you to draw a small rectangle on a 
 white patch (background). After drawing a rectangle, click on `OK` to move to the next
-image.
+image. 
+
+> **Note**: You can use any type of ROI selection, e.g. lasso. This is useful when the
+> background regions are not really compatible with a rectangle selection.
 
 All resulting images are saved into a new folder (`*-normalized`). We recommend to
 perform a quality control to check whether the normalization was succesful. For this,
