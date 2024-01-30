@@ -14,6 +14,13 @@ blood vessels or glomeruli.
 In order to carry out the quantification, we perform pixel classification of the images
 using Labkit, a plugin available in Fiji.
 
+
+## Report problems or ask questions
+
+If you have any questions or problems, please open 
+[an issue](https://github.com/ai4life-opencalls/oc_1_project_3/issues) in this repository. 
+
+
 ## Installation
 
 ### Installing Fiji
