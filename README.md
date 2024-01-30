@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Treat CKD
+# Project 3: Treat CKD
 
 The aim of the project is to compute the percentage of collagen versus tissue in each
 of the tissue slices. There are two types of tissues, heart and kidney, originating
