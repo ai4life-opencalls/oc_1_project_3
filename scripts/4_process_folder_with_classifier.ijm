@@ -296,6 +296,9 @@ for (i = 0; i < files.length; i++) {
 			resultAreaPercentage_excl[i] = percFiberMasked;
 		} else {
 			print("No mask found.");
+			resultAreaTissue_excl[i] = areaTissue;
+			resultAreaFiber_excl[i] = areaFiber;
+			resultAreaPercentage_excl[i] = percFiber;
 		}
 	}
 	
