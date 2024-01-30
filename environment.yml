@@ -23,6 +23,7 @@ dependencies:
   - torchvision
   - pip
   - pip:
+      - imagecodecs
       - numpy
       - matplotlib
       - opencv-python==4.8.0.74
