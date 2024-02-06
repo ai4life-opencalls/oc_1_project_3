@@ -10,6 +10,8 @@ In this project, the researchers, working for [RD Néphrologie](https://www.rd-n
 
 In order to estimate the density of collagen in the tissue, we used [Labkit](https://imagej.net/plugins/labkit/) to classify each pixel into one of four classes, background, cells, tissue or collagen. Labkit is a [Fiji](https://imagej.net/software/fiji/) plugin with an intuitive interface that allows labelling pixels in the images and training a random forest classifier. We designed a collection of Fiji scripts to normalize the images, exclude parts of the images from the analysis using masks and perform the quantification. We proposed several ways to obtain the masks for region exclusion, from creating regions of interest in Fiji to using advanced deep learning algorithms such as the [Segment Anything Model](https://segment-anything.com/) (SAM).
 
+The data was provided by Nathalie Gayrard, Juliana Boukhaled, and Irene Cortijo from RD Néphrologie.
+
 
 ## Report problems or ask questions
 
@@ -147,14 +149,18 @@ circles or even freehand shapes.
 
 1. Open and run `scripts/2a_create_mask.ijm`.
 
-<img src='imgs/2a_parameters.png' width='25'>
+<p align="center">
+<img src='imgs/2a_parameters.png' width='400'>
+</p>
 
 2. For each image, the script will pause and ask you to draw a ROI around areas you want
 to exclude from the analysis. Each time you draw a ROI, press `t` to add it to the ROI
 manager.
 3. Once you are done, press `OK` to move to the next image.
 
-<img src='imgs/2a_rois.png' width='25'>
+<p align="center">
+<img src='imgs/2a_rois.png' width='600'>
+</p>
 
 > **Note**: You can use any type of ROI selection, e.g. lasso or circle as well. It is 
 > just important to remember to add each new ROI to the ROI manager using the `t` shortcut.
@@ -213,7 +219,9 @@ There are a few options that can potentially improve the pipeline or useful to k
 - Check using SAM predictor
 - Predict on the whole stack
 
-7. Export the segmentation to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
+7. Export the images to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
+   and, in Fiji, up-scale them by the same factor
+   you scaled the stack down.
 
 > **Advice**: only add a few pixels at a time when you label. Avoid long lines,
 > priviledge small labeling then prediction, then correction.
@@ -221,18 +229,15 @@ There are a few options that can potentially improve the pipeline or useful to k
 
 #### SAM prediction
 
-Here, we simply draw rectangles or points to predict directly with SAM the masks
-for the structures we wish to exclude. Use the
-plugin `Plugins > napari-labeling-SAM-tools > SAM Prompt Segmentation Widget` to
-draw rectangles around the structure of interest, or points inside them, and 
-predict masks.
+Here, we simply draw rectangles or points to predict directly with SAM. Use the
+plugin `Plugins > napari-labeling-SAM-tools > SAM...`
 
-At the end, export the segmentation to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
+
 
 #### Correcting the masks for the pipeline
 
-2. Use the script `scripts > 2b_correct_SAM_masks.ijm` to fix the masks exported from napari
-3. Rename the individual files created by the script so that they match the raw files name.
+Run the `scripts > 2b_correct_SAM_masks.ijm` and select the stack of masks you 
+exported from napari.
 
 
 ### 2c - Painting with Labkit
@@ -251,9 +256,9 @@ with then brush, e.g. with a larger brush size, or make an outline and use the
 8. Once you are done, show the labeling in Fiji (`Labeling > Show Labeling in ImageJ`).
 9. Save the labeling as a sequence of images (`.tiff`).
 
-
-<img src='imgs/2c_manual_label_with_labkit.png' width='25'>
-
+<p align="center">
+<img src='imgs/2c_manual_label_with_labkit.png' width='600'>
+</p>
 
 Note that for the next sections, the normalized images and their corresponding masks
 must have the same name, e.g. `raw-normalised/image1.tiff` and `masks/image1.tiff`. 
@@ -288,9 +293,9 @@ you can either open all images in Fiji and compare them, or used the
 11. Once you are happy with the results, save the classifier 
     (`Segmentation > Save Classifier ...`) and write down the order of the classes.
 
-
-<img src='imgs/3_train_labkit_classifier.png' width='25'>
-
+<p align="center">
+<img src='imgs/3_train_labkit_classifier.png' width='600'>
+</p>
 
 ### 4 - Process images and quantification
 
@@ -298,8 +303,9 @@ you can either open all images in Fiji and compare them, or used the
 2. If you want to exclude masks from the analysis, check `Exclude masks` and choose
    the folder containing the masks.
 
-<img src='imgs/4_parameters.png' width='25'>
-
+<p align="center">
+<img src='imgs/4_parameters.png' width='400'>
+</p>
 
 3. At the end of the computation, all results are saved in the result folder, 
    including the summary table.
