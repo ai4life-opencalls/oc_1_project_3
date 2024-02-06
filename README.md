@@ -208,9 +208,7 @@ There are a few options that can potentially improve the pipeline or useful to k
 - Check using SAM predictor
 - Predict on the whole stack
 
-7. Export the images to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
-   and, in Fiji, up-scale them by the same factor
-   you scaled the stack down.
+7. Export the segmentation to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
 
 > **Advice**: only add a few pixels at a time when you label. Avoid long lines,
 > priviledge small labeling then prediction, then correction.
@@ -218,15 +216,18 @@ There are a few options that can potentially improve the pipeline or useful to k
 
 #### SAM prediction
 
-Here, we simply draw rectangles or points to predict directly with SAM. Use the
-plugin `Plugins > napari-labeling-SAM-tools > SAM...`
+Here, we simply draw rectangles or points to predict directly with SAM the masks
+for the structures we wish to exclude. Use the
+plugin `Plugins > napari-labeling-SAM-tools > SAM Prompt Segmentation Widget` to
+draw rectangles around the structure of interest, or points inside them, and 
+predict masks.
 
-
+At the end, export the segmentation to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
 
 #### Correcting the masks for the pipeline
 
-Run the `scripts > 2b_correct_SAM_masks.ijm` and select the stack of masks you 
-exported from napari.
+2. Use the script `scripts > 2b_correct_SAM_masks.ijm` to fix the masks exported from napari
+3. Rename the individual files created by the script so that they match the raw files name.
 
 
 ### 2c - Painting with Labkit
