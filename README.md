@@ -41,7 +41,7 @@ simplify the installation process. We recommend to use
 
 1. Open the terminal and check whether your have `conda` installed by typing `conda -V`.
    If you get an error, you will need to install it. Otherwise, you can skip to step 3.
-2. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Restart 
+2. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to check "Add to Path environment variable". Restart 
    your terminal and verify that now conda works.
 3. Let's download the repository. In the terminal, type the following lines:
     ```bash
