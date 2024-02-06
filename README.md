@@ -34,40 +34,40 @@ The Jupyter notebooks are used for quality control, while our napari plugins pro
 additional tools to create masks in order to exclude areas from the analysis.
 
 Both need to be installed using Python, and we recommend to use a virtual environment.
-To do that we will need a terminal (aka command prompt). While unix-based systems
-(MacOS, Linux) have a terminal by default, Windows users will need to install one to
-simplify the installation process. We recommend to use 
-[git bash](https://gitforwindows.org/).
+To do that we will need a terminal (aka command prompt).
 
-1. Open the terminal and check whether your have `conda` installed by typing `conda -V`.
-   If you get an error, you will need to install it. Otherwise, you can skip to step 3.
-2. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to check "Add to Path environment variable". Restart 
-   your terminal and verify that now conda works.
-3. Let's download the repository. In the terminal, type the following lines (see the primer on bash commands below):
+> **Note**: In this section, we only use a Windows system. The Linux or macOS instructions
+> will be quite similar, except that your would use the native os terminal (e.g. bash). You
+> might need to add `miniconda` to your Path variable, and perform a `conda init bash` command.
+
+1. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to check "Add to Path environment variable". R
+2. Open the terminal called "Anaconda prompt" and check whether `conda` works by typing `conda -V`.
+3. Here is a primer on Windows console commands:  
+  - `pwd`: prints the working directory
+  - `dir`: lists the files in the directory
+  - `cd <directory>`: goes to <directory>, if you are in the correct parent folder.
+5. Let's download the repository. In the terminal, type the following lines:
     ```bash
     mkdir git
     cd git
     git clone https://github.com/ai4life-opencalls/oc_1_project_3
     cd oc_1_project_3
     ```
-4. We then create a `conda` environment in which to install both Jupyter and napari.
+6. We then create a `conda` environment in which to install both Jupyter and napari.
     ```bash
     conda env create -f environment.yml
     ```
    You will need to answer `y` to the installation of the packages.
-5. Now, and everytime you start your terminal, it is important to activate the 
-   environment. To do that, type `conda activate ckd`. If this does not work, that means
-   that you probably need to do a `conda init bash` first and restart your terminal.
-6. You can start a Jupyter server by typing `jupyter notebook`. It will open a new page
+7. Now, and everytime you start your terminal, it is important to activate the 
+   environment. To do that, type `conda activate ckd`. 
+8. You can start a Jupyter server by typing `jupyter notebook`. It will open a new page
    in your browser. There, navigate to the `quality_control` folder and open one of the
    notebook.
-7. Open a new terminal, activate the environment and start napari by typing `napari`.
+9. Open a new terminal, activate the environment and start napari by typing `napari`.
 
-> **Primer on bash commands:**
-> - `pwd`: prints the working directory
-> - `ls`: lists the files in the directory
-> - `cd <directory>`: goes to <directory>, if you are in the correct parent folder.
-
+> **How to stop jupyter:**
+> 1. Close the windows
+> 2. In the command prompt, hit `ctrl + c`
 
 ## Usage
 
