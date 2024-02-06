@@ -161,42 +161,12 @@ you can either open all images in Fiji and compare them, or used the
 `quality_control/2_explore_masks.ipynb` notebook. 
 
 
-### 2b - Using SAM in napari
-
-This method is more complex but potentially more powerful, as it levereages Segment
-Anything Model (SAM), once of the most advanced AI model for segmentation. We use SAM 
-by providing prompts (positive and negative points, or rectangles) to the model. SAM 
-then output masks that can be saved for later use.
+### 2b - Using SAM in napari 
 
 This method is more complex but can prove incredibly powerful in guiding SAM towards
 what we want to obtain. Since this is the main tool used in another project, we advise 
-you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52)
-and [napari-sam-labeling-tools](https://github.com/juglab/napari-sam-labeling-tools) for 
-how to proceed with this method.
-
-Here is a small summary:
-
-1. In order to limit the number of clicking, we advise to create a stack in Fiji of all
-   your images (e.g. 20).
-2. The second thing is to scale down your images to save computation time and space. For 
-   instance, if your images are 3074x2048, you can scale them by a factor 0.125 (x8). In
-   Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
-3. Save as a tiff stack.
-4. Open napari by entering `napari` in a terminal.
-5. Add the images to napari (drag and drop).
-6. In napari, go to `Plugins > napari-labeling-SAM-tools > SAM Embeddings Extractor`.
-7. In the new section that opened 
-
-
-We recommend to perform a quality control to check whether the masks are correct. For this,
-you can either open all images in Fiji and compare them, or used the 
-`quality_control/2_explore_masks.ipynb` notebook. 
-
-### 2c - Pairing SAM embeddings with Random Forest
-
-This method is more complex but can prove incredibly powerful in guiding SAM towards
-what we want to obtain. Since this is the main tool used in another project, we advise 
-you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52) for 
+you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52) and
+[napari-sam-labeling-tools](https://github.com/juglab/napari-sam-labeling-tools) for 
 how to proceed with this method.
 
 Note that in this case, the goal is still to create masks for the areas we want to 
