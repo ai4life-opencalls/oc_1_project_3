@@ -196,8 +196,12 @@ There are two pipelines: SAM-RF and SAM with prompts.
 4. Save as a tiff stack.
 5. Open napari by typing `napari` in a command prompt and drag and drop the images.
 6. In napari, go to `Plugins > napari-labeling-SAM-tools > SAM Embeddings Extractor`.
-7. In the new section that opened, choose the layer, where to save the embeddings and
-   click on `Extract Embeddings`.
+7. In the new section that opened, choose the layer, where to save the embeddings and click on `Extract Embeddings`.
+
+
+<p align="center">
+<img src='imgs/2b_embeddings.png' width='600'>
+</p>
 
 #### SAM-RF
 
@@ -208,11 +212,21 @@ Here we are going to use the `Plugins > napari-labeling-SAM-tools > SAM-RF Segme
 we want to label areas we want to exclude from the rest of the analysis with the
 label `2`, and the rest with label `1`. The pipeline can be summarized as follows:
 1. Label a few pixels of boths classes
+
+<p align="center">
+<img src='imgs/2b_sam_labels.png' width='600'>
+</p>
+
 2. Train the random forest
 3. Predict on the slice
 4. Correct the labels
 5. Train and predict
-6. Repeat until you are happy!
+<p align="center">
+<img src='imgs/2b_sam_rf.png' width='600'>
+</p>
+6. Repeat until you are happy, this might take a few iterations.
+
+
 
 There are a few options that can potentially improve the pipeline or useful to know:
 - Check post-processing and change the threshold
@@ -232,6 +246,14 @@ There are a few options that can potentially improve the pipeline or useful to k
 Here, we simply draw rectangles or points to predict directly with SAM. Use the
 plugin `Plugins > napari-labeling-SAM-tools > SAM...`
 
+
+<p align="center">
+<img src='imgs/2b_box_prompt.png' width='600'>
+</p>
+
+<p align="center">
+<img src='imgs/2b_point_prompt.png' width='600'>
+</p>
 
 
 #### Correcting the masks for the pipeline
