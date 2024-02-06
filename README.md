@@ -203,11 +203,13 @@ label `2`, and the rest with label `1`. The pipeline can be summarized as follow
 5. Train and predict
 6. Repeat until you are happy!
 
-There are a few options that can potentially improve the pipeline:
+There are a few options that can potentially improve the pipeline or useful to know:
 - Check post-processing and change the threshold
 - Check using SAM predictor
+- Predict on the whole stack
 
-7. Export the images to tiff and, in Fiji, up-scale them by the same factor
+7. Export the images to tiff (select layer, then `File > Save selected layers` and give it an extension, e.g. tiff)
+   and, in Fiji, up-scale them by the same factor
    you scaled the stack down.
 
 > **Advice**: only add a few pixels at a time when you label. Avoid long lines,
