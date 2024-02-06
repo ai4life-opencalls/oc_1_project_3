@@ -172,22 +172,53 @@ how to proceed with this method.
 Note that in this case, the goal is still to create masks for the areas we want to 
 exclude!
 
+There are two pipelines: SAM-RF and SAM with prompts.
 
-1. In order to limit the number of clicking, we advise to create a stack in Fiji of all
-   your images (e.g. 20).
-2. The second thing is to scale down your images to save computation time and space. For 
+#### Pre-requisite
+
+1. Install the python environment (see the installation steps at the top of the page).
+2. In order to limit the number of clicking, we advise to create a stack in Fiji of all
+   your images (e.g. 10 images).
+3. The second thing is to scale down your images to save computation time and space. For 
    instance, if your images are 3074x2048, you can scale them by a factor 0.125 (x8). In
    Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
-3. Save as a tiff stack.
-4. Open napari by entering `napari` in a terminal.
-5. Add the images to napari (drag and drop).
+4. Save as a tiff stack.
+5. Open napari by typing `napari` in a command prompt and drag and drop the images.
 6. In napari, go to `Plugins > napari-labeling-SAM-tools > SAM Embeddings Extractor`.
 7. In the new section that opened, choose the layer, where to save the embeddings and
    click on `Extract Embeddings`.
-8. Now close the plugin and open `Plugins > napari-labeling-SAM-tools > SAM-RF Segmentation Widget`.
-9. Refer to [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52) on how to proceed
-  with the plugin.
-11. Scale up the masks by a factor 8 in Fiji.
+
+#### SAM-RF
+
+In this section, we will use a napari plugin to train a random forest based on the 
+embeddings extracted from SAM. The embeddings are unique for a specific stack!
+
+Here we are going to use the `Plugins > napari-labeling-SAM-tools > SAM-RF Segmentation Widget` plugin, 
+we want to label areas we want to exclude from the rest of the analysis with the
+label `2`, and the rest with label `1`. The pipeline can be summarized as follows:
+1. Label a few pixels of boths classes
+2. Train the random forest
+3. Predict on the slice
+4. Correct the labels
+5. Train and predict
+6. Repeat until you are happy!
+
+There are a few options that can potentially improve the pipeline:
+- Check post-processing and change the threshold
+- Check using SAM predictor
+
+7. Export the images to tiff and, in Fiji, up-scale them by the same factor
+   you scaled the stack down.
+
+> **Advice**: only add a few pixels at a time when you label. Avoid long lines,
+> priviledge small labeling then prediction, then correction.
+
+
+#### SAM prediction
+
+Here, we simply draw rectangles or points to predict directly with SAM. Use the
+plugin `Plugins > napari-labeling-SAM-tools > SAM...`
+
 
 
 
