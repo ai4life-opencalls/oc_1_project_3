@@ -6,13 +6,9 @@
 
 # Project 3: Treat CKD
 
-The aim of the project is to compute the percentage of collagen versus tissue in each
-of the tissue slices. There are two types of tissues, heart and kidney, originating
-from mouse and rats. Additional structures can be excluded from the analysis, such as 
-blood vessels or glomeruli.
+In this project, the researchers, working for [RD Néphrologie](https://www.rd-n.org/en/home/) in Montpellier (France), are studying the effect of Chronic Kidney Disease (CKD) on the density of collagen in specific tissues, such as the heart and kidney. Using mouse and rat models, they extract tissue slices and detect collagen using a biochemical marker. 
 
-In order to carry out the quantification, we perform pixel classification of the images
-using Labkit, a plugin available in Fiji.
+In order to estimate the density of collagen in the tissue, we used [Labkit](https://imagej.net/plugins/labkit/) to classify each pixel into one of four classes, background, cells, tissue or collagen. Labkit is a [Fiji](https://imagej.net/software/fiji/) plugin with an intuitive interface that allows labelling pixels in the images and training a random forest classifier. We designed a collection of Fiji scripts to normalize the images, exclude parts of the images from the analysis using masks and perform the quantification. We proposed several ways to obtain the masks for region exclusion, from creating regions of interest in Fiji to using advanced deep learning algorithms such as the [Segment Anything Model](https://segment-anything.com/) (SAM).
 
 
 ## Report problems or ask questions
