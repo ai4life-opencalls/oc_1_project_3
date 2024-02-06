@@ -125,6 +125,10 @@ section 3 and finally, `result_analysis` in section 4.
 white patch (background). After drawing a rectangle, click on `OK` to move to the next
 image. 
 
+<p align="center">
+<img src='imgs/1_draw_roi.png' width='600'>
+</p>
+
 > **Note**: You can use any type of ROI selection, e.g. lasso. This is useful when the
 > background regions are not really compatible with a rectangle selection.
 
@@ -142,10 +146,15 @@ be used to create rectangles - the simplest shape -, or more complex ROIs by dra
 circles or even freehand shapes.
 
 1. Open and run `scripts/2a_create_mask.ijm`.
+
+<img src='imgs/2a_parameters.png' width='25'>
+
 2. For each image, the script will pause and ask you to draw a ROI around areas you want
 to exclude from the analysis. Each time you draw a ROI, press `t` to add it to the ROI
 manager.
 3. Once you are done, press `OK` to move to the next image.
+
+<img src='imgs/2a_rois.png' width='25'>
 
 > **Note**: You can use any type of ROI selection, e.g. lasso or circle as well. It is 
 > just important to remember to add each new ROI to the ROI manager using the `t` shortcut.
@@ -242,6 +251,10 @@ with then brush, e.g. with a larger brush size, or make an outline and use the
 8. Once you are done, show the labeling in Fiji (`Labeling > Show Labeling in ImageJ`).
 9. Save the labeling as a sequence of images (`.tiff`).
 
+
+<img src='imgs/2c_manual_label_with_labkit.png' width='25'>
+
+
 Note that for the next sections, the normalized images and their corresponding masks
 must have the same name, e.g. `raw-normalised/image1.tiff` and `masks/image1.tiff`. 
 Therefore, you might have to rename the images, for instance by exporting the stack
@@ -276,11 +289,18 @@ you can either open all images in Fiji and compare them, or used the
     (`Segmentation > Save Classifier ...`) and write down the order of the classes.
 
 
+<img src='imgs/3_train_labkit_classifier.png' width='25'>
+
+
 ### 4 - Process images and quantification
 
 1. Open and run `scripts/4_process_folder_with_classifier.ijm`.
 2. If you want to exclude masks from the analysis, check `Exclude masks` and choose
    the folder containing the masks.
+
+<img src='imgs/4_parameters.png' width='25'>
+
+
 3. At the end of the computation, all results are saved in the result folder, 
    including the summary table.
 
