@@ -57,7 +57,7 @@ simplify the installation process. We recommend to use
    You will need to answer `y` to the installation of the packages.
 5. Now, and everytime you start your terminal, it is important to activate the 
    environment. To do that, type `conda activate ckd`. If this does not work, that means
-   that you probably need to do a `conda init bash` first and restart your terminal first.
+   that you probably need to do a `conda init bash` first and restart your terminal.
 6. You can start a Jupyter server by typing `jupyter notebook`. It will open a new page
    in your browser. There, navigate to the `quality_control` folder and open one of the
    notebook.
