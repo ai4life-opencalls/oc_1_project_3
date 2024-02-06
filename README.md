@@ -223,8 +223,13 @@ plugin `Plugins > napari-labeling-SAM-tools > SAM...`
 
 
 
+#### Correcting the masks for the pipeline
 
-### 2d - Painting with Labkit
+Run the `scripts > 2b_correct_SAM_masks.ijm` and select the stack of masks you 
+exported from napari.
+
+
+### 2c - Painting with Labkit
 
 1. Load all normalized images into Fiji.
 2. By default, the image might be loaded as a z-stack. Click on `Image > Properties...`,
