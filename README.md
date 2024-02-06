@@ -168,6 +168,14 @@ Anything Model (SAM), once of the most advanced AI model for segmentation. We us
 by providing prompts (positive and negative points, or rectangles) to the model. SAM 
 then output masks that can be saved for later use.
 
+This method is more complex but can prove incredibly powerful in guiding SAM towards
+what we want to obtain. Since this is the main tool used in another project, we advise 
+you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52)
+and [napari-sam-labeling-tools](https://github.com/juglab/napari-sam-labeling-tools) for 
+how to proceed with this method.
+
+Here is a small summary:
+
 1. In order to limit the number of clicking, we advise to create a stack in Fiji of all
    your images (e.g. 20).
 2. The second thing is to scale down your images to save computation time and space. For 
@@ -175,11 +183,10 @@ then output masks that can be saved for later use.
    Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
 3. Save as a tiff stack.
 4. Open napari by entering `napari` in a terminal.
-5. 
+5. Add the images to napari (drag and drop).
+6. In napari, go to `Plugins > napari-labeling-SAM-tools > SAM Embeddings Extractor`.
+7. In the new section that opened 
 
-+ scale at the masks at the end 
-
-(soon to be expanded)
 
 We recommend to perform a quality control to check whether the masks are correct. For this,
 you can either open all images in Fiji and compare them, or used the 
@@ -203,9 +210,15 @@ exclude!
    Fiji, click on `Image > Scale...` and enter the factor in the `X` and `Y` fields.
 3. Save as a tiff stack.
 4. Open napari by entering `napari` in a terminal.
-5. 
+5. Add the images to napari (drag and drop).
+6. In napari, go to `Plugins > napari-labeling-SAM-tools > SAM Embeddings Extractor`.
+7. In the new section that opened, choose the layer, where to save the embeddings and
+   click on `Extract Embeddings`.
+8. Now close the plugin and open `Plugins > napari-labeling-SAM-tools > SAM-RF Segmentation Widget`.
+9. Refer to [OC project 52](https://github.com/ai4life-opencalls/oc_1_project_52) on how to proceed
+  with the plugin.
+11. Scale up the masks by a factor 8 in Fiji.
 
-+ scale at the masks at the end 
 
 
 ### 2d - Painting with Labkit
