@@ -43,9 +43,8 @@ simplify the installation process. We recommend to use
    If you get an error, you will need to install it. Otherwise, you can skip to step 3.
 2. Install [miniconda](https://docs.conda.io/projects/miniconda/en/latest/). Make sure to check "Add to Path environment variable". Restart 
    your terminal and verify that now conda works.
-3. Let's download the repository. In the terminal, type the following lines:
+3. Let's download the repository. In the terminal, type the following lines (see the primer on bash commands below):
     ```bash
-    cd ~
     mkdir git
     cd git
     git clone https://github.com/ai4life-opencalls/oc_1_project_3
@@ -63,12 +62,16 @@ simplify the installation process. We recommend to use
    notebook.
 7. Open a new terminal, activate the environment and start napari by typing `napari`.
 
+> **Primer on bash commands:**
+> - `pwd`: prints the working directory
+> - `ls`: lists the files in the directory
+> - `cd <directory>`: goes to <directory>, if you are in the correct parent folder.
+
 
 ## Usage
 
 The pipeline consists of [Fiji](https://fiji.sc/) scripts, a Fiji plugin and an 
 optional [napari](https://napari.org/stable/) plugin. It includes the following steps:
-
 1. [Data normalization](#1---data-normalization): normalize data to allow better 
   classification using a single Labkit trained classifier.
 2. [Mask creation](#2a---mask-creation): create masks in order to exclude regions from
