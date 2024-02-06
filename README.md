@@ -52,8 +52,9 @@ simplify the installation process. We recommend to use
     ```
 4. We then create a `conda` environment in which to install both Jupyter and napari.
     ```bash
-    conda env create -y -f environment.yml
+    conda env create -f environment.yml
     ```
+   You will need to answer `y` to the installation of the packages.
 5. Now, and everytime you start your terminal, it is important to activate the 
    environment. To do that, type `conda activate ckd`. If this does not work, that means
    that you probably need to do a `conda init bash` first and restart your terminal first.
