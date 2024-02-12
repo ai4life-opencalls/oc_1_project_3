@@ -186,10 +186,10 @@ you to look in [OC project 52](https://github.com/ai4life-opencalls/oc_1_project
 [napari-sam-labeling-tools](https://github.com/juglab/napari-sam-labeling-tools) for 
 how to proceed with this method.
 
-Note that in this case, the goal is still to create masks for the areas we want to 
-exclude!
+> **Note** that in this case, the goal is still to create masks for the areas we want to 
+> exclude!
 
-There are two pipelines: SAM-RF and SAM with prompts.
+**There are two pipelines: SAM-RF and SAM with prompts.**
 
 #### Pre-requisite
 
@@ -288,10 +288,10 @@ with then brush, e.g. with a larger brush size, or make an outline and use the
 <img src='imgs/2c_manual_label_with_labkit.png' width='600'>
 </p>
 
-Note that for the next sections, the normalized images and their corresponding masks
-must have the same name, e.g. `raw-normalised/image1.tiff` and `masks/image1.tiff`. 
-Therefore, you might have to rename the images, for instance by exporting the stack
-as a sequence as well.
+> Note that for the next sections, the normalized images and their corresponding masks
+> must have the same name, e.g. `raw-normalised/image1.tiff` and `masks/image1.tiff`. 
+> Therefore, you might have to rename the images, for instance by exporting the stack
+> as a sequence as well.
 
 We recommend to perform a quality control to check whether the masks are correct. For this,
 you can either open all images in Fiji and compare them, or used the 
