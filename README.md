@@ -26,7 +26,13 @@ If you have any questions or problems, please open
 You can download Fiji from [here](https://imagej.net/software/fiji/downloads).
 
 
-## (Optional) Installing Jupyter and napari
+### Installing Labkit
+
+If you have an old Fiji installation, [Labkit](https://imagej.net/plugins/labkit/) might not be there by default.
+To install it, go to `Help > Update` in Fiji. Then, click on `Manage Update Sites`. From that list, scroll down to `Labkit`, select the checkbox, and click the `Apply and Close` button. Then from the Updated, select `Apply changes`.
+
+
+### (Optional) Installing Jupyter and napari
 
 The Jupyter notebooks are used for quality control, while our napari plugins provide
 additional tools to create masks in order to exclude areas from the analysis.
