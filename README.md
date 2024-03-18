@@ -4,6 +4,10 @@
   </a>
 </p>
 
+
+[![DOI](https://zenodo.org/badge/748659546.svg)](https://zenodo.org/doi/10.5281/zenodo.10830120)
+
+
 # Project 3: Treat CKD
 
 In this project, the researchers, working for [RD Néphrologie](https://www.rd-n.org/en/home/) in Montpellier (France), are studying the effect of Chronic Kidney Disease (CKD) on the density of collagen in specific tissues, such as the heart and kidney. Using mouse and rat models, they extract tissue slices and detect collagen using a biochemical marker. 
