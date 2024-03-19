@@ -112,7 +112,7 @@ for (i = 0; i < files.length; i++) {
 	}
 	
 	// Recompose image
-	run("Merge Channels...", "c1=" + c1 + " c2=" + c2 + " c3=" + c3 + " create");
+	run("Merge Channels...", "c1=[" + c1 + "] c2=[" + c2 + "] c3=[" + c3 + "] create");
 	run("RGB Color");
 	
 	// New name

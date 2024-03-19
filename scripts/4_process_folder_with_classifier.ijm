@@ -171,7 +171,6 @@ for (i = 0; i < files.length; i++) {
 	///////////////////////////////////
 	////////// Segment image //////////
 	///////////////////////////////////
-	
 	// Open file
 	path = inputDirectory + File.separator + files[i];
 	fileName = File.getName(files[i]);
@@ -197,7 +196,7 @@ for (i = 0; i < files.length; i++) {
 	if (max + 1 != labelsArray.length) {
 		nSegs = max + 1;
 		nLabels = labelsArray.length;
-		print("Error: "+filename+" needs " + nSegs + " labels, got " + nLabels + ".");
+		print("Error: "+fileName+" needs " + nSegs + " labels, got " + nLabels + ".");
 		continue;
 	}
 
