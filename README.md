@@ -6,6 +6,7 @@
 
 
 [![DOI](https://zenodo.org/badge/748659546.svg)](https://zenodo.org/doi/10.5281/zenodo.10830120)
+![Static Badge](https://img.shields.io/badge/Data_on_BIA-S--BIAD1998-blue?link=https%3A%2F%2Fwww.ebi.ac.uk%2Fbiostudies%2Fbioimages%2Fstudies%2FS-BIAD1998)
 
 
 # Project 3: Treat CKD
@@ -13,6 +14,8 @@
 In this project, the researchers, working for [RD Néphrologie](https://www.rd-n.org/en/home/) in Montpellier (France), are studying the effect of Chronic Kidney Disease (CKD) on the density of collagen in specific tissues, such as the heart and kidney. Using mouse and rat models, they extract tissue slices and detect collagen using a biochemical marker. 
 
 In order to estimate the density of collagen in the tissue, we used [Labkit](https://imagej.net/plugins/labkit/) to classify each pixel into one of four classes, background, cells, tissue or collagen. Labkit is a [Fiji](https://imagej.net/software/fiji/) plugin with an intuitive interface that allows labelling pixels in the images and training a random forest classifier. We designed a collection of Fiji scripts to normalize the images, exclude parts of the images from the analysis using masks and perform the quantification. We proposed several ways to obtain the masks for region exclusion, from creating regions of interest in Fiji to using advanced deep learning algorithms such as the [Segment Anything Model](https://segment-anything.com/) (SAM).
+
+[Example data](https://www.ebi.ac.uk/biostudies/bioimages/studies/S-BIAD1998) is available on the BioImage Archive (S-BIAD1998).
 
 The data was provided by Nathalie Gayrard, Juliana Boukhaled, and Irene Cortijo from RD Néphrologie.
 
